@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     //return this.get('store').findAll('post');
 
   model: function() {
-    return this.store.findAll('post');
+    return this.store.findAll('post', {id: true});
     //return this.store.findAll('comment');
   },
   actions: {

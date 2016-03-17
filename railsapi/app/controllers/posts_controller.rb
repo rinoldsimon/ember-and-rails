@@ -4,17 +4,18 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    #@posts = Post.all
+    @posts = Post.all
 
-    #render json: @posts
-    render json: { posts: Post.all, comments: Comment.all }, methods: :comment_ids
+    render json: @posts
+    #render json: { posts: Post.all}
+    #render json: { posts: Post.all, comments: Comment.all }, methods: :comment_ids
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    #render json: @post
-    render json: { post: @post, comments: @post.comments }, methods: :comment_ids
+    render json: @post
+    #render json: { post: @post, comments: @post.comments }, methods: :comment_ids
   end
 
   # POST /posts
@@ -23,8 +24,8 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      #render json: @post, status: :created, location: @post
-      render json: { post: @post, comments: @post.comments }, methods: :comment_ids, status: :created, location: @post
+      render json: @post, status: :created, location: @post
+      #render json: { post: @post, comments: @post.comments }, methods: :comment_ids, status: :created, location: @post
     else
       render json: @post.errors, status: :unprocessable_entity
     end
