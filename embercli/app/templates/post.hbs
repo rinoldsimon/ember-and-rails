@@ -5,7 +5,7 @@
 <div>
   <strong>Comments( {{model.comments.length}} ):</strong>
   {{!#each model.comments as |comment|}}
-  {{#each comment in  post.comments}}
+  {{#each model.comments as |comment|}}
     <div>
       <strong>{{comment.author}} said:</strong>
       <p>{{comment.body}}</p>
