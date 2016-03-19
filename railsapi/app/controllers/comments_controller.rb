@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
 
     render json: @comments
     #render json: { comments: Comment.all }, methods: :post_id
-    #render json: { posts: Post.all, comments: Comment.all }, methods: :comment_ids
   end
 
   # GET /comments/1
@@ -16,7 +15,6 @@ class CommentsController < ApplicationController
   def show
     render json: @comment
     #render json: { comment: @comment }, methods: :post_id
-    #render json: { post: @post, comments: @post.comments }, methods: :comment_ids
   end
 
   # POST /comments
@@ -27,7 +25,6 @@ class CommentsController < ApplicationController
     if @comment.save
       render json: @comment, status: :created, location: @comment
       #render json: { comment: @comment }, methods: :post_id, status: :created, location: @comment
-      #render json: { post: @post, comments: @post.comments }, methods: :comment_ids, status: :created, location: @post
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
