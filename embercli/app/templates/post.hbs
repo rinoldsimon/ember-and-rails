@@ -1,14 +1,15 @@
 {{#link-to 'posts'}}Back to the posts list{{/link-to}}
 <h3>Post Show</h3>
-<h2>{{model.title}}</h2>
-<p>{{model.body}}</p>
+<strong>{{model.title}}</strong>
+<span>{{model.body}}</span>
 <div>
   <strong>Comments( {{model.comments.length}} ):</strong>
   {{!#each model.comments as |comment|}}
   {{#each model.comments as |comment|}}
     <div>
       <strong>{{comment.author}} said:</strong>
-      <p>{{comment.body}}</p>
+      <span>{{comment.body}}</span>
+      {{link-to 'Edit Comment' 'post.comment.edit' model.id comment.id}}
       <button {{action 'deleteComment' comment}}>Delete Comment</button>
     </div>
   {{/each}}

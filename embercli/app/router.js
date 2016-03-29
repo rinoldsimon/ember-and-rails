@@ -12,6 +12,7 @@ Router.map(function() {
   //this.resource('post', { path: 'posts/:post_id' }, function() {
   this.route('post', { path: 'posts/:post_id' }, function() {
     this.route('comment.new', { path: 'comments/new' });
+    this.route('comment.edit', { path: 'comments/:comment_id/edit' });
   });
 });
 
